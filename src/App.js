@@ -31,8 +31,6 @@ class App extends React.Component {
 
     return (
       <div className="ui container">
-        <Header />
-        < SearchBar callBack={this.onProductSearch} />
         <Route path="/">
           <Home />
         </Route>
