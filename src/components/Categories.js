@@ -12,13 +12,13 @@ const Categories = (props) => {
 
     //retrieve all categories
     const getCategories = async () => {
-        const response = await backendAPI.get('categories');
+        const response = await backendAPI.get('/categories');
         setCategories(response.data);
     }
 
     const renderedCategories = categories.map(category => {
         return(
-            <div className="ui card">
+            <div className="ui card" key={category.id}>
                 <img className="ui image small floated centered" src={category.products[0].imageURL} alt=""/>
                 <div className="content">
                     <div className="header">{category.name}</div>
