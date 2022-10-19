@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import backendAPI from "../api/backendAPI";
+import Header from "./Header";
+import SearchBar from "./SearchBar";
 
 const Categories = (props) => {
     
@@ -29,9 +31,14 @@ const Categories = (props) => {
     });
 
     return(
-        <div className="ui centered cards two">
-            {renderedCategories}
+        <div>
+            <Header />
+            <SearchBar />
+            <div className="ui centered cards two">
+                {renderedCategories}
+            </div>
         </div>
+        
     );
     
 }

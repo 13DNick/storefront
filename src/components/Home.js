@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "./Link";
 
 const Home = (props) => {
     return(
@@ -6,12 +7,14 @@ const Home = (props) => {
             
             <div className="ui center aligned container text">
                 <button className="ui green animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
-                    <div className="visible content">
-                        Enter Ecommerce Store
-                    </div>
-                    <div className="hidden content">
-                        <i aria-hidden="true" className="unlock alternate icon"></i>
-                    </div>
+                    <Link href="/categories">
+                        <div className="visible content" style={{color: '#FFF'}}>
+                            Enter Ecommerce Store
+                        </div>
+                        <div className="hidden content" style={{color: '#FFF'}}>
+                            <i aria-hidden="true" className="unlock alternate icon"></i>
+                        </div>
+                    </Link>
                 </button>
 
                 <h1 style={{marginTop: '0.3em', fontSize: '4em', fontWeight:'normal'}}>Application Overview</h1>
@@ -110,22 +113,26 @@ const Home = (props) => {
                     <div className="two column row">
                         <div className="column">
                             <button className="ui green animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
-                                <div className="visible content">
-                                    Enter Ecommerce Store
-                                </div>
-                                <div className="hidden content">
-                                    <i aria-hidden="true" className="unlock alternate icon"></i>
-                                </div>
+                                <Link href="/categories">
+                                    <div className="visible content" style={{color: '#FFF'}}>
+                                        Enter Ecommerce Store
+                                    </div>
+                                    <div className="hidden content" style={{color: '#FFF'}}>
+                                        <i aria-hidden="true" className="unlock alternate icon"></i>
+                                    </div>
+                                </Link>
                             </button>
                         </div>
                         <div className="column">
-                            <button className="ui primary animated button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
-                                <div className="visible content">
-                                    Developer LinkedIn Profile
-                                </div>
-                                <div className="hidden content">
-                                    <i aria-hidden="true" className="linkedin icon"></i>
-                                </div>
+                            <button className="ui primary animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
+                                <a href="https://www.linkedin.com/in/nikitakoulaga" target="_blank" rel="noreferrer">
+                                    <div className="visible content" style={{color: '#FFF'}}>
+                                        Developer LinkedIn Profile
+                                    </div>
+                                    <div className="hidden content" style={{color: '#FFF'}}>
+                                        <i aria-hidden="true" className="linkedin icon"></i>
+                                    </div>
+                                </a>
                             </button>
                         </div>
                     </div>
