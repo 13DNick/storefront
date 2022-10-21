@@ -13,6 +13,7 @@ const Link = (props) => {
         window.dispatchEvent(navEvent);
     }
     
+    
     return(
         <a href={props.href} className={props.className} onClick={onClick}>
             {props.children}

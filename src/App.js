@@ -7,16 +7,19 @@ import Categories from './components/Categories';
 import Products from './components/Products';
 import Home from './components/Home';
 import SearchResults from './components/SearchResults';
+import Category from './components/Category';
 
 
 class App extends React.Component {
   
   state = {
-    products: []
+    products: [],
+    selectedCategory: []
   }
 
-  componentDidMount(){
-   
+  //retrieve whichever category was clicked from child
+  onCategorySelect = (category) => {
+    this.setState({selectedCategory: category});
   }
 
   //search for single product by name
@@ -37,10 +40,8 @@ class App extends React.Component {
       this.updateURL();
     } );
     
-    
   }
 
-  //notify user of empty search result
   updateURL = () => {
      //change url
      window.history.pushState({}, '', '/results');
@@ -61,7 +62,7 @@ class App extends React.Component {
         <Route path="/categories">
           <Header />
           <SearchBar callBack={this.onProductSearch}/>
-          <Categories />
+          <Categories onCategorySelect={this.onCategorySelect}/>
         </Route>
         <Route path="/products">
           <Header />
@@ -72,6 +73,11 @@ class App extends React.Component {
           <Header />
           <SearchBar callBack={this.onProductSearch}/>
           <SearchResults products={this.state.products}/>
+        </Route>
+        <Route path="/category">
+          <Header />
+          <SearchBar callBack={this.onProductSearch}/>
+          <Category category={this.state.selectedCategory}/>
         </Route>
       </div>
     );

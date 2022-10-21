@@ -41,7 +41,7 @@ const SearchResults = (props) => {
         );
     }
 
-
+    //return search results if they exist - else return error display
     if(props.products.length !== 0){
         return(
             <div className="ui centered cards three">
