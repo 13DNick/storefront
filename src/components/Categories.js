@@ -31,14 +31,9 @@ const Categories = (props) => {
     });
 
     return(
-        <div>
-            <Header />
-            <SearchBar />
-            <div className="ui centered cards two">
-                {renderedCategories}
-            </div>
-        </div>
-        
+        <div className="ui centered cards two">
+            {renderedCategories}
+        </div> 
     );
     
 }
