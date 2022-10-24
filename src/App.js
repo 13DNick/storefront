@@ -7,14 +7,20 @@ import Categories from './components/Categories';
 import Products from './components/Products';
 import Home from './components/Home';
 import SearchResults from './components/SearchResults';
-import Category from './components/Category';
+import CategoryDetail from './components/CategoryDetail';
+import ProductDetail from './components/ProductDetail';
 
 
 class App extends React.Component {
   
   state = {
     products: [],
-    selectedCategory: []
+    selectedCategory: [],
+    selectedProduct: []
+  }
+
+  onProductSelect = (product) => {
+    this.setState({selectedProduct: product});
   }
 
   //retrieve whichever category was clicked from child
@@ -67,7 +73,7 @@ class App extends React.Component {
         <Route path="/products">
           <Header />
           <SearchBar callBack={this.onProductSearch}/>
-          <Products />
+          <Products onProductSelect={this.onProductSelect}/>
         </Route>
         <Route path="/results">
           <Header />
@@ -77,7 +83,12 @@ class App extends React.Component {
         <Route path="/category">
           <Header />
           <SearchBar callBack={this.onProductSearch}/>
-          <Category category={this.state.selectedCategory}/>
+          <CategoryDetail category={this.state.selectedCategory} onProductSelect={this.onProductSelect}/>
+        </Route>
+        <Route path="/product">
+          <Header />
+          <SearchBar callBack={this.onProductSearch}/>
+          <ProductDetail product={this.state.selectedProduct}/>
         </Route>
       </div>
     );

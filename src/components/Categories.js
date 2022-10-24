@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import backendAPI from "../api/backendAPI";
-import Link from "./Link";
 
 const Categories = (props) => {
     
@@ -30,7 +29,7 @@ const Categories = (props) => {
         //tell components url has updated 
         const navEvent = new PopStateEvent('popstate');
         window.dispatchEvent(navEvent);
-     }
+    }
 
     const renderedCategories = categories.map(category => {
         return(
