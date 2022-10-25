@@ -1,4 +1,5 @@
 import React from 'react';
+import { Rating } from 'semantic-ui-react';
 
 const Product = (props) => {
    
@@ -19,13 +20,19 @@ const Product = (props) => {
    
     return(
         <a className="ui card" href="/product" onClick={(e) => handleClick(e, props.product)}>
-            <img className="ui image small floated centered" src={props.product.imageURL} alt=""/>
+            <img className="ui image small floated centered" src={props.product.imageURL} alt="" style={{marginTop: '1em'}}/>
             <div className="content">
                 <div className="header">{props.product.name}</div>
-                <div className="meta">${props.product.price}</div>
-                <div className="description">{props.product.description}</div>
+                <div className="description">
+                    <div className='ui header' style={{fontWeight: 'normal'}}>${props.product.price.toFixed(2)}</div>
+                </div>
             </div>
-            <div className="extra content">{props.product.rating}/5 {props.product.ratingCount} ratings</div>
+            <div className="extra content">
+            <Rating icon="star" 
+                defaultRating={Math.round(props.product.rating)} 
+                maxRating={5} size="large" disabled/>
+                &nbsp;&nbsp;&nbsp;{props.product.ratingCount} Ratings
+            </div>
         </a>
    );
 }

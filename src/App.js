@@ -78,7 +78,7 @@ class App extends React.Component {
         <Route path="/results">
           <Header />
           <SearchBar callBack={this.onProductSearch}/>
-          <SearchResults products={this.state.products}/>
+          <SearchResults products={this.state.products} onProductSelect={this.onProductSelect}/>
         </Route>
         <Route path="/category">
           <Header />

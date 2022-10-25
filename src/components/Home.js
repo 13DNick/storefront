@@ -124,13 +124,11 @@ const Home = (props) => {
                             </button>
                         </div>
                         <div className="column">
-                            <button className="ui primary animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
+                            <button className="ui linkedin fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
                                 <a href="https://www.linkedin.com/in/nikitakoulaga" target="_blank" rel="noreferrer">
                                     <div className="visible content" style={{color: '#FFF'}}>
+                                        <i aria-hidden className="linkedin icon"/>
                                         Developer LinkedIn Profile
-                                    </div>
-                                    <div className="hidden content" style={{color: '#FFF'}}>
-                                        <i aria-hidden="true" className="linkedin icon"></i>
                                     </div>
                                 </a>
                             </button>

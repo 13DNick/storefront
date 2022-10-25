@@ -1,3 +1,4 @@
+import { getDefaultNormalizer } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import backendAPI from "../api/backendAPI";
 
@@ -31,12 +32,31 @@ const Categories = (props) => {
         window.dispatchEvent(navEvent);
     }
 
+    const getImage = (name) => {
+        if(name === 'electronics'){
+            return 'electronics.jpeg';
+        } else if(name === "men's clothing"){
+            return 'mclothing.webp';
+        } else if(name === "women's clothing"){
+            return 'fclothing.jpg';
+        } else if(name === 'jewelery'){
+            return 'jewelry.jpg';
+        }
+    } 
+
+    const processName = (name) => {
+        if(name === 'jewelery'){
+            return 'Jewelry';
+        }
+        return name.charAt(0).toUpperCase() + name.slice(1);
+    }
+
     const renderedCategories = categories.map(category => {
         return(
             <a className="ui card" key={category.id}  href="/category" onClick={(e) => handleClick(e, category)}>
-                <img className="ui image small floated centered" src={category.products[0].imageURL} alt=""/>
+                <img className="ui image medium floated centered" src={getImage(category.name)} alt="" style={{marginTop: "1em"}}/>
                 <div className="content">
-                    <div className="header">{category.name}</div>
+                    <div className="header">{processName(category.name)}</div>
                 </div>
                 <div className="extra content">{category.products.length} products listed</div>
             </a>
