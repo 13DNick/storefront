@@ -25,7 +25,9 @@ const ProductDetail = (props) => {
                         </div>
                         <div className="">{props.product.description}</div>
                         
-                        <div className="ui right floated primary icon right labeled button" style={{marginTop: "1em"}}>
+                        <div className="ui right floated primary icon right labeled button" 
+                             onClick={() => {props.addProductToCart(props.product)}} 
+                             style={{marginTop: "1em"}}>
                             Add To Cart <i aria-hidden className="cart icon"/>
                         </div>
                     </div>

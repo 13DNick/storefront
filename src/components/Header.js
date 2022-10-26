@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "./Link";
+import Cart from './Cart';
 
 const Header = (props) => {
     return(
@@ -12,6 +13,9 @@ const Header = (props) => {
             </Link>
             <Link href="/products" className="item">
                 Products
+            </Link>
+            <Link href="/cart" className="right floated item">
+                <Cart cartItems={props.cartItems}/>
             </Link>
         </div>
     );

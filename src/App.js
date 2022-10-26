@@ -9,14 +9,22 @@ import Home from './components/Home';
 import SearchResults from './components/SearchResults';
 import CategoryDetail from './components/CategoryDetail';
 import ProductDetail from './components/ProductDetail';
+import CartView from './components/CartView';
 
 
 class App extends React.Component {
   
   state = {
-    products: [],
+    searchResults: [],
     selectedCategory: [],
-    selectedProduct: []
+    selectedProduct: [],
+    cartItems: []
+  }
+
+  addProductToCart = (product) => {
+    this.setState(prevState => ({
+      cartItems: [...prevState.cartItems, product]
+    }));
   }
 
   onProductSelect = (product) => {
@@ -42,7 +50,7 @@ class App extends React.Component {
       }
     });
 
-    this.setState({products: response.data}, () => {
+    this.setState({searchResults: response.data}, () => {
       this.updateURL();
     } );
     
@@ -66,29 +74,34 @@ class App extends React.Component {
           <Home />
         </Route>
         <Route path="/categories">
-          <Header />
+          <Header cartItems={this.state.cartItems}/>
           <SearchBar callBack={this.onProductSearch}/>
           <Categories onCategorySelect={this.onCategorySelect}/>
         </Route>
         <Route path="/products">
-          <Header />
+          <Header cartItems={this.state.cartItems}/>
           <SearchBar callBack={this.onProductSearch}/>
           <Products onProductSelect={this.onProductSelect}/>
         </Route>
         <Route path="/results">
-          <Header />
+          <Header cartItems={this.state.cartItems}/>
           <SearchBar callBack={this.onProductSearch}/>
-          <SearchResults products={this.state.products} onProductSelect={this.onProductSelect}/>
+          <SearchResults products={this.state.searchResults} onProductSelect={this.onProductSelect}/>
         </Route>
         <Route path="/category">
-          <Header />
+          <Header cartItems={this.state.cartItems}/>
           <SearchBar callBack={this.onProductSearch}/>
           <CategoryDetail category={this.state.selectedCategory} onProductSelect={this.onProductSelect}/>
         </Route>
         <Route path="/product">
-          <Header />
+          <Header cartItems={this.state.cartItems}/>
           <SearchBar callBack={this.onProductSearch}/>
-          <ProductDetail product={this.state.selectedProduct}/>
+          <ProductDetail product={this.state.selectedProduct} addProductToCart={this.addProductToCart}/>
+        </Route>
+        <Route path="/cart">
+          <Header cartItems={this.state.cartItems}/>
+          <SearchBar callBack={this.onProductSearch}/>
+          <CartView cartItems={this.state.cartItems}/>
         </Route>
       </div>
     );
