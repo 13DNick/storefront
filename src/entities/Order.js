@@ -1,0 +1,1 @@
+export let Order = (id, total, items, date_created) => {return {id: id, total: total, items: items, date_created: date_created}};
