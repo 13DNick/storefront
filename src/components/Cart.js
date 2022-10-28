@@ -21,7 +21,7 @@ const Cart = (props) => {
     return(
         <button className="ui primary compact animated mini button">
                 <div className="visible content" style={{color: '#FFF'}}>
-                    <span>{getTotal()}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <span>$ {getTotal()}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                     <i aria-hidden className="cart icon"/>
                 </div>
                 <div className="hidden content" style={{color: '#FFF'}}>
