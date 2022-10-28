@@ -1,1 +1,5 @@
-export let Order = (id, total, items, date_created) => {return {id: id, total: total, items: items, date_created: date_created}};
+export let Order = (totalPrice, totalQuantity, items, dateCreated) => {
+    return {
+        totalPrice: totalPrice, totalQuantity, items: items, dateCreated: dateCreated
+    }
+};

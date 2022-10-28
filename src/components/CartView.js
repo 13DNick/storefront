@@ -1,13 +1,17 @@
 import React from "react";
 import { Order } from "../entities/Order";
 import { OrderItem } from "../entities/OrderItem";
+import backendAPI from "../api/backendAPI";
 
 
 class CartView extends React.Component {
     
     state = {
         orderItems: [],
-        order: {}
+        order: {},
+        firstName: '',
+        lastName: '',
+        email: ''
     }
 
     componentDidMount(){
@@ -19,9 +23,9 @@ class CartView extends React.Component {
     }
 
     
-    isItemAlreadyCreated = (items, id) => {
+    isItemAlreadyCreated = (items, name) => {
         for(let i = 0; i < items.length; i++){
-            if(items[i].product_id === id){
+            if(items[i].name === name){
                 return true;
             }
         }
@@ -37,14 +41,14 @@ class CartView extends React.Component {
             let count = 1;
             let item = cartItems[i];
     
-            if(!this.isItemAlreadyCreated(items, currentProductId)){
+            if(!this.isItemAlreadyCreated(items, item.name)){
                 for(let n = i+1; n < cartItems.length; n++){
                     if(cartItems[n].id === currentProductId){
                         count++;
                     }
                 }
     
-                const orderItem = OrderItem(0, 0, currentProductId, item.name, item.price, count, item.price * count, item.imageURL);
+                const orderItem = OrderItem(item.name, item.price, count, item.price * count, item.imageURL);
                 items.push(orderItem);
             }
         }
@@ -52,17 +56,33 @@ class CartView extends React.Component {
     };
     
     createOrder = (items) => {
-        let orderTotal = 0;
+        let orderTotal = 0.00;
     
         items.forEach(item => {
             orderTotal += item.price;
         });
         
-        let order = Order(0, orderTotal, items, new Date());
+        let order = Order(orderTotal.toFixed(2), this.props.cartItems.length, items, new Date());
     
         return order;
     }
 
+    onFormSubmit = (e) => {
+        e.preventDefault();
+
+        let customer = (this.state.firstName, this.state.lastName, this.state.email);
+
+        let purchase = (customer, this.state.order, this.state.orderItems);
+
+        const response = this.submitPurchase(purchase);
+
+        console.log(response);
+    }
+
+    submitPurchase = async (purchase) => {
+        const response = await backendAPI.post(`/checkout/purchase`, JSON.parse(JSON.stringify(purchase)));
+        return response.data;
+    }
     
     render(){
         return(
@@ -73,7 +93,7 @@ class CartView extends React.Component {
                             {
                                 this.state.orderItems.map(item => {
                                     return(
-                                        <div className="three column row" key={item.product_id}>
+                                        <div className="three column row" key={item.name}>
                                             <div className="four wide column"><img src={item.imageURL} className="ui rounded tiny image" alt=""/></div>
                                             <div className="eight wide column">
                                                 <div className="ui header">{item.name}</div>
@@ -91,20 +111,55 @@ class CartView extends React.Component {
                     </div>
                     <div className="four wide column">
                         <div className="ui container text">
-                            <div className="ui card">
-                                <div className="content">
-                                    <div className="header">Place Order</div>
+                            <form onSubmit={this.onFormSubmit} className="ui form">
+                                <div className="ui card">
+                                    <div className="content">
+                                        <div className="header">Enter Personal Information</div>
+                                    </div>
+                                    <div className="content">
+                                        <div className='field'>
+                                            <label>First Name</label>
+                                            <input type="text" 
+                                                onChange={(e) => {this.setState({firstName: e.target.value})}} 
+                                                value={this.state.firstName}    
+                                            />
+                                        </div> 
+                                        <div className='field'>
+                                            <label>Last Name</label>
+                                            <input type="text" 
+                                                onChange={(e) => {this.setState({lastName: e.target.value})}} 
+                                                value={this.state.lastName}    
+                                            />
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="content">
+                                        <div className='field'>
+                                            <label>Email Address</label>
+                                            <input type="text" 
+                                                onChange={(e) => {this.setState({email: e.target.value})}} 
+                                                value={this.state.email}    
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="content">
-                                    <p>Quantity: {this.props.cartItems.length}</p>
-                                    <p>Total price: ${this.state.order.total}</p>
+                                
+                                
+                                <div className="ui card">
+                                    <div className="content">
+                                        <div className="header">Place Order</div>
+                                    </div>
+                                    <div className="content">
+                                        <p>Quantity: {this.state.order.totalQuantity}</p>
+                                        <p>Total price: ${this.state.order.totalPrice}</p>
+                                    </div>
+                                    <div className="content">
+                                        <button className="ui green fluid button" style={{fontSize:'1em'}}>
+                                            Place Order
+                                        </button>
+                                    </div>
                                 </div>
-                                <div className="content">
-                                    <button className="ui green fluid button" style={{fontSize:'1em'}}>
-                                        Place Order
-                                    </button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
