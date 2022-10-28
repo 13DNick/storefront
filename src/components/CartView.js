@@ -66,29 +66,49 @@ class CartView extends React.Component {
     
     render(){
         return(
-            <div className="ui container text">
-                <div className="ui header">
-                    Cart view
-                </div>
-                <div className="ui centered vertically divided grid">
-                    {
-                        this.state.orderItems.map(item => {
-                            return(
-                                <div className="three column row" key={item.product_id}>
-                                    <div className="four wide column"><img src={item.imageURL} className="ui rounded tiny image" alt=""/></div>
-                                    <div className="eight wide column">
-                                        <div className="ui header">{item.name}</div>
-                                    </div>
-                                    <div className="four wide column">
-                                        <div>Unit price: ${item.unitPrice.toFixed(2)}</div>
-                                        <div>Quantity: {item.quantity}</div>
-                                        <div>Total: ${(item.price).toFixed(2)}</div>
-                                    </div>
+            <div className="ui centered vertically divided grid">
+                <div className="two column row">
+                    <div className="twelve wide column">
+                        <div className="ui centered vertically divided grid">
+                            {
+                                this.state.orderItems.map(item => {
+                                    return(
+                                        <div className="three column row" key={item.product_id}>
+                                            <div className="four wide column"><img src={item.imageURL} className="ui rounded tiny image" alt=""/></div>
+                                            <div className="eight wide column">
+                                                <div className="ui header">{item.name}</div>
+                                            </div>
+                                            <div className="four wide column">
+                                                <div>Unit price: ${item.unitPrice.toFixed(2)}</div>
+                                                <div>Quantity: {item.quantity}</div>
+                                                <div>Total: ${(item.price).toFixed(2)}</div>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </div>
+                    </div>
+                    <div className="four wide column">
+                        <div className="ui container text">
+                            <div className="ui card">
+                                <div className="content">
+                                    <div className="header">Place Order</div>
                                 </div>
-                            );
-                        })
-                    }
+                                <div className="content">
+                                    <p>Quantity: {this.props.cartItems.length}</p>
+                                    <p>Total price: ${this.state.order.total}</p>
+                                </div>
+                                <div className="content">
+                                    <button className="ui green fluid button" style={{fontSize:'1em'}}>
+                                        Place Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                        
             </div>
         );
     };
