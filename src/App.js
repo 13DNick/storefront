@@ -56,6 +56,10 @@ class App extends React.Component {
     
   }
 
+  resetCart = () => {
+    this.setState({cartItems: []});
+  }
+
   updateURL = () => {
      //change url
      window.history.pushState({}, '', '/results');
@@ -101,7 +105,7 @@ class App extends React.Component {
         <Route path="/cart">
           <Header cartItems={this.state.cartItems}/>
           <SearchBar callBack={this.onProductSearch}/>
-          <CartView cartItems={this.state.cartItems}/>
+          <CartView cartItems={this.state.cartItems} reset={this.resetCart}/>
         </Route>
       </div>
     );

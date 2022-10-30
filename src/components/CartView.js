@@ -1,7 +1,11 @@
 import React from "react";
 import { Order } from "../entities/Order";
-import { OrderItem } from "../entities/OrderItem";
+import { OrderItem} from "../entities/OrderItem";
+import { Customer } from "../entities/Customer";
+import { Purchase } from "../entities/Purchase";
 import backendAPI from "../api/backendAPI";
+import { OrderHelper } from "../entities/OrderHelper";
+import Link from './Link';
 
 
 class CartView extends React.Component {
@@ -11,7 +15,8 @@ class CartView extends React.Component {
         order: {},
         firstName: '',
         lastName: '',
-        email: ''
+        email: '',
+        orderTrackingNumber: ''
     }
 
     componentDidMount(){
@@ -48,7 +53,7 @@ class CartView extends React.Component {
                     }
                 }
     
-                const orderItem = OrderItem(item.name, item.price, count, item.price * count, item.imageURL);
+                const orderItem = OrderItem(item.name, item.price, count, item.price * count, item.imageURL, cartItems[i].id);
                 items.push(orderItem);
             }
         }
@@ -70,21 +75,39 @@ class CartView extends React.Component {
     onFormSubmit = (e) => {
         e.preventDefault();
 
-        let customer = (this.state.firstName, this.state.lastName, this.state.email);
+        let customer = Customer(this.state.firstName, this.state.lastName, this.state.email);
 
-        let purchase = (customer, this.state.order, this.state.orderItems);
+        let orderH = OrderHelper(Number(this.state.order.totalPrice), this.state.order.totalQuantity);
 
-        const response = this.submitPurchase(purchase);
+        let purchase = Purchase(customer, orderH, this.state.orderItems);
 
-        console.log(response);
+        this.submitPurchase(purchase);
+    
     }
 
     submitPurchase = async (purchase) => {
-        const response = await backendAPI.post(`/checkout/purchase`, JSON.parse(JSON.stringify(purchase)));
-        return response.data;
+        const jsonPurchase = JSON.stringify(purchase);
+        const response = await backendAPI.post(`/checkout/purchase`, jsonPurchase, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        this.setState({orderTrackingNumber: response.data.orderTrackingNumber});
     }
-    
-    render(){
+
+    resetCart = () =>{
+        this.setState({
+            orderItems: [],
+            order: {},
+            firstName: '',
+            lastName: '',
+            email: '',
+            orderTrackingNumber: ''
+        });
+        this.props.reset();
+    }
+
+    beforeCheckoutView = () => {
         return(
             <div className="ui centered vertically divided grid">
                 <div className="two column row">
@@ -166,6 +189,43 @@ class CartView extends React.Component {
                         
             </div>
         );
+    }
+
+    afterCheckoutView = () => {
+        return(
+            <div className="ui center aligned container text">
+                <i aria-hidden="true" className="check circle massive icon" style={{color: 'green'}}></i>
+                <div className="ui center aligned header">
+                    <div className="content">Thank you for your order!</div>
+                    <div className="content">Order Tracking Number: {this.state.orderTrackingNumber}</div>
+                </div>
+                <div className="ui blue animated button" onClick={this.resetCart}>
+                    <Link href="/categories">
+                        <div className="visible content" style={{color: '#FFF'}}>
+                            Confirm
+                        </div>
+                        <div className="hidden content" style={{color: '#FFF'}}>
+                            <i aria-hidden="true" className="long arrow alternate left large icon"></i>
+                        </div>
+                    </Link>
+                </div>
+            </div>   
+        );
+    }
+    
+    render(){
+        
+        if(this.state.orderTrackingNumber === ''){
+            return(
+                <div>{this.beforeCheckoutView()}</div>
+            );
+        } else {
+            return(
+                <div>{this.afterCheckoutView()}</div>
+            );
+        }
+        
+        
     };
     
 }
