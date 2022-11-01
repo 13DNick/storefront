@@ -6,6 +6,7 @@ import { Purchase } from "../entities/Purchase";
 import backendAPI from "../api/backendAPI";
 import { OrderHelper } from "../entities/OrderHelper";
 import Link from './Link';
+import { Form } from "semantic-ui-react";
 
 
 class CartView extends React.Component {
@@ -16,7 +17,10 @@ class CartView extends React.Component {
         firstName: '',
         lastName: '',
         email: '',
-        orderTrackingNumber: ''
+        orderTrackingNumber: '',
+        validEmail: false, emailChanged: false,
+        validFirstName: false, firstNameChanged: false,
+        validLastName: false, lastNameChanged: false
     }
 
     componentDidMount(){
@@ -27,7 +31,77 @@ class CartView extends React.Component {
         );
     }
 
-    
+    validateName = (name) => {
+        if(name === "first"){
+            if(this.state.firstName.length > 2) {
+                this.setState({validFirstName: true});
+            } else {
+                this.setState({validFirstName: false});
+            }
+        } else {
+            if(this.state.lastName.length > 2) {
+                this.setState({validLastName: true});
+            } else {
+                this.setState({validLastName: false});
+            }
+        }
+    }
+
+    validateEmail = () => {
+        const validEmailPattern = new RegExp(
+            // eslint-disable-next-line no-useless-escape
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        );
+        
+        if(validEmailPattern.test(this.state.email)){
+            this.setState({validEmail: true});
+        } else {
+            this.setState({validEmail: false});
+        }
+    }
+
+    handleFirstNameError = () => {
+        if(!this.state.firstNameChanged){
+            return false;
+        } else {
+            if(this.state.validFirstName){
+                return false;
+            } 
+            return {
+                content:"Please enter a valid first name.",
+                pointing: "below"
+            }
+        }
+    }
+
+    handleLastNameError = () => {
+        if(!this.state.lastNameChanged){
+            return false;
+        } else {
+            if(this.state.validLastName){
+                return false;
+            } 
+            return {
+                content:"Please enter a valid last name.",
+                pointing: "below"
+            }
+        }
+    }
+
+    handleEmailError = () => {
+        if(!this.state.emailChanged){
+            return false;
+        } else {
+            if(this.state.validEmail){
+                return false;
+            } 
+            return {
+                content:"Please enter a valid email address.",
+                pointing: "below"
+            }
+        }
+    }
+
     isItemAlreadyCreated = (items, name) => {
         for(let i = 0; i < items.length; i++){
             if(items[i].name === name){
@@ -140,30 +214,32 @@ class CartView extends React.Component {
                                         <div className="header">Enter Personal Information</div>
                                     </div>
                                     <div className="content">
-                                        <div className='field'>
-                                            <label>First Name</label>
-                                            <input type="text" 
-                                                onChange={(e) => {this.setState({firstName: e.target.value})}} 
-                                                value={this.state.firstName}    
-                                            />
-                                        </div> 
-                                        <div className='field'>
-                                            <label>Last Name</label>
-                                            <input type="text" 
-                                                onChange={(e) => {this.setState({lastName: e.target.value})}} 
-                                                value={this.state.lastName}    
-                                            />
-                                        </div>
+                                        <Form.Input label="First Name" 
+                                            onChange={(e) => {this.setState({firstName: e.target.value, firstNameChanged: true}, 
+                                                        this.validateName("first"))}
+                                            } 
+                                            value={this.state.firstName}
+                                            error={this.handleFirstNameError()}
+                                        /> 
+                                        
+                                        <Form.Input label="Last Name" 
+                                            onChange={(e) => {this.setState({lastName: e.target.value, lastNameChanged: true}, 
+                                                        this.validateName("last"))}
+                                            } 
+                                            value={this.state.lastName}
+                                            error={this.handleLastNameError()}
+                                        /> 
+                                        
                                     </div>
                                     
                                     <div className="content">
-                                        <div className='field'>
-                                            <label>Email Address</label>
-                                            <input type="text" 
-                                                onChange={(e) => {this.setState({email: e.target.value})}} 
-                                                value={this.state.email}    
-                                            />
-                                        </div>
+                                    <Form.Input label="Email Address" 
+                                            onChange={(e) => {this.setState({email: e.target.value, emailChanged: true}, 
+                                                        this.validateEmail())}
+                                            } 
+                                            value={this.state.email}
+                                            error={this.handleEmailError()}
+                                        /> 
                                     </div>
                                 </div>
                                 
@@ -205,7 +281,7 @@ class CartView extends React.Component {
                             Confirm
                         </div>
                         <div className="hidden content" style={{color: '#FFF'}}>
-                            <i aria-hidden="true" className="long arrow alternate left large icon"></i>
+                            <i aria-hidden="true" className="checkmark icon"></i>
                         </div>
                     </Link>
                 </div>
