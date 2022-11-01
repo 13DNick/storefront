@@ -18,13 +18,25 @@ const Home = (props) => {
                 </button>
 
                 <h1 style={{marginTop: '0.3em', fontSize: '4em', fontWeight:'normal'}}>Application Overview</h1>
-                <div role="list" className="ui animated middle aligned list relaxed" style={{fontSize: '1.2em'}}>
+                    
+                <div role="list" className="ui horizontal list relaxed" style={{fontSize: '1.2em', marginBottom: '0.3em', marginTop: '0em'}}>
                     <div role="listitem" className="item"><div className="header">Fullstack Application</div></div>
-                    <div role="listitem" className="item"><div className="header">CRUD support for categories and their products</div></div>
-                    <div role="listitem" className="item"><div className="header">Login/Logout support</div></div>
-                    <div role="listitem" className="item"><div className="header">Secured endpoints</div></div>
+                    <div role="listitem" className="item"><div className="header">CRUD Support</div></div>
+                    <div role="listitem" className="item"><div className="header">Dynamic DB Data Population</div></div>
                 </div>
-                <img src="/banner.jpeg" alt="banner" className="ui rounded huge image"></img>
+
+                <div role="list" className="ui horizontal list relaxed" style={{fontSize: '1.2em', marginBottom: '0.3em', marginTop: '0em'}}>
+                    <div role="listitem" className="item"><div className="header">Custom Jackson JSON Deserializer</div></div>
+                    <div role="listitem" className="item"><div className="header">Custom Component Routing</div></div>
+                </div>
+            
+                <div role="list" className="ui horizontal list relaxed" style={{fontSize: '1.2em', marginBottom: '0.3em', marginTop: '0em'}}>
+                    <div role="listitem" className="item"><div className="header">Browse or Query Products</div></div>
+                    <div role="listitem" className="item"><div className="header">Add Products To Cart</div></div>
+                    <div role="listitem" className="item"><div className="header">Place an Order</div></div>
+                </div>
+                            
+                <img src="/banner.jpeg" alt="banner" className="ui rounded huge image" style={{marginTop: '1em'}}></img>
 
                 <hr style={{marginTop: '1.5em'}}/>
             </div>
