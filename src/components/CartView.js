@@ -234,12 +234,12 @@ class CartView extends React.Component {
                                     
                                     <div className="content">
                                     <Form.Input label="Email Address" 
-                                            onChange={(e) => {this.setState({email: e.target.value, emailChanged: true}, 
-                                                        this.validateEmail())}
-                                            } 
-                                            value={this.state.email}
-                                            error={this.handleEmailError()}
-                                        /> 
+                                        onChange={(e) => {this.setState({email: e.target.value, emailChanged: true}, 
+                                                    this.validateEmail())}
+                                        } 
+                                        value={this.state.email}
+                                        error={this.handleEmailError()}
+                                    /> 
                                     </div>
                                 </div>
                                 
@@ -274,6 +274,11 @@ class CartView extends React.Component {
                 <div className="ui center aligned header">
                     <div className="content">Thank you for your order!</div>
                     <div className="content">Order Tracking Number: {this.state.orderTrackingNumber}</div>
+                    <div className="content" style={{fontWeight:'normal'}}>Total: ${this.state.order.totalPrice}</div>
+                    <br/>
+                    <div className="content" style={{fontWeight:'normal'}}>
+                        Order Date: {this.state.order.dateCreated.toLocaleString()}
+                    </div>
                 </div>
                 <div className="ui blue animated button" onClick={this.resetCart}>
                     <Link href="/categories">
