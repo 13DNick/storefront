@@ -17,34 +17,50 @@ const Home = (props) => {
                     </Link>
                 </button>
 
-                <h1 style={{marginTop: '0.3em', fontSize: '4em', fontWeight:'normal'}}>Application Overview</h1>
+                <h1 style={{marginTop: '0.3em', marginBottom: '0.4em', fontSize: '4em', fontWeight:'normal'}}>Application Overview</h1>
                     
-                <div role="list" className="ui horizontal list relaxed" style={{fontSize: '1.2em', marginBottom: '0.3em', marginTop: '0em'}}>
-                    <div role="listitem" className="item"><div className="header">Fullstack Application</div></div>
-                    <div role="listitem" className="item"><div className="header">CRUD Support</div></div>
-                    <div role="listitem" className="item"><div className="header">Dynamic DB Data Population</div></div>
+                <div role="list" className="ui horizontal list relaxed">
+                    <div role="listitem" className="item">
+                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Fullstack Application</div>
+                    </div>
+                    <div role="listitem" className="item">
+                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>CRUD Support</div>
+                    </div>
+                    <div role="listitem" className="item">
+                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Dynamic DB Data Population</div>
+                    </div>
                 </div>
 
-                <div role="list" className="ui horizontal list relaxed" style={{fontSize: '1.2em', marginBottom: '0.3em', marginTop: '0em'}}>
-                    <div role="listitem" className="item"><div className="header">Custom Jackson JSON Deserializer</div></div>
-                    <div role="listitem" className="item"><div className="header">Custom Component Routing</div></div>
+                <div role="list" className="ui horizontal list relaxed">
+                    <div role="listitem" className="item">
+                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Custom Jackson JSON Deserializer</div>
+                    </div>
+                    <div role="listitem" className="item">
+                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Custom Component Routing</div>
+                    </div>
                 </div>
             
-                <div role="list" className="ui horizontal list relaxed" style={{fontSize: '1.2em', marginBottom: '0.3em', marginTop: '0em'}}>
-                    <div role="listitem" className="item"><div className="header">Browse or Query Products</div></div>
-                    <div role="listitem" className="item"><div className="header">Add Products To Cart</div></div>
-                    <div role="listitem" className="item"><div className="header">Place an Order</div></div>
+                <div role="list" className="ui horizontal list relaxed">
+                    <div role="listitem" className="item">
+                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Browse or Query Products</div>
+                    </div>
+                    <div role="listitem" className="item">
+                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Add Products To Cart</div>
+                    </div>
+                    <div role="listitem" className="item">
+                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Place an Order</div>
+                    </div>
                 </div>
                             
-                <img src="/banner.jpeg" alt="banner" className="ui rounded huge image" style={{marginTop: '1em'}}></img>
+                <img src="/banner.jpeg" alt="banner" className="ui rounded huge image" style={{marginTop: '1.1em'}}></img>
 
-                <hr style={{marginTop: '1.5em'}}/>
+                <hr style={{marginTop: '3em'}}/>
             </div>
             
             
             
             <div className="ui center aligned container text">
-                <h1 style={{marginTop: '0.3em', fontSize: '4em', fontWeight:'normal'}}>Technologies Utilized</h1>
+                <h1 style={{marginTop: '0.4em', marginBottom: '0.4em', fontSize: '4em', fontWeight:'normal'}}>Technologies Utilized</h1>
                 
                 <div className="ui centered vertically divided grid">
                     <div className="stretched three column row">
@@ -85,12 +101,6 @@ const Home = (props) => {
                                         and convert between JSON and Java POJO's</div>
                                     </div> 
                                 </div>
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">Spring Security</div>
-                                        <div className="description">secure endpoints through established roles</div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div className="column"><img src="spring-boot-maven.png" alt="spring boot and maven logo" className="ui rounded image"/></div>
@@ -105,6 +115,12 @@ const Home = (props) => {
                                         <div className="header">React.js</div>
                                         <div className="description">development of the frontend client application</div>
                                     </div>
+                                </div>
+                                <div role="listitem" className="item">
+                                    <div className="content">
+                                        <div className="header">Axios</div>
+                                        <div className="description">requests to backend api</div>
+                                    </div>  
                                 </div>
                                 <div role="listitem" className="item">
                                     <div className="content">
