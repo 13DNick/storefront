@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://155.138.139.231:8443/api'
+    baseURL: 'https://ecommerceapi.xyz/api'
 });
