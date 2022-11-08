@@ -27,7 +27,7 @@ const Home = (props) => {
                         <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>CRUD Support</div>
                     </div>
                     <div role="listitem" className="item">
-                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Dynamic DB Data Population</div>
+                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>HTTP Secure</div>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@ const Home = (props) => {
                         <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Custom Jackson JSON Deserializer</div>
                     </div>
                     <div role="listitem" className="item">
-                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Custom Component Routing</div>
+                        <div className="header" style={{fontSize: '1.4em', fontWeight: 'normal', marginBottom: '1.3em'}}>Dynamic DB Data Population</div>
                     </div>
                 </div>
             
@@ -63,26 +63,6 @@ const Home = (props) => {
                 <h1 style={{marginTop: '0.4em', marginBottom: '0.4em', fontSize: '4em', fontWeight:'normal'}}>Technologies Utilized</h1>
                 
                 <div className="ui centered vertically divided grid">
-                    <div className="stretched three column row">
-                        <div className="column"><img src="database.png" alt="database logo" className="ui rounded small image"/></div>
-                        <div className="column">
-                            <div className="ui relaxed list">
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">MySQL</div>
-                                        <div className="description">creation of relational database schema</div>
-                                    </div>
-                                </div>
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">Postman</div>
-                                        <div className="description">manual testing of API endpoints</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="column"><img src="mysql.png" alt="mysql logo" className="ui rounded small image"/></div>
-                    </div>
                     
                     <div className="stretched three column row">
                         <div className="column"><img src="java.png" alt="java logo" className="ui rounded image"/></div>
@@ -103,7 +83,28 @@ const Home = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="column"><img src="spring-boot-maven.png" alt="spring boot and maven logo" className="ui rounded image"/></div>
+                        <div className="column"><img src="springboot.png" alt="spring boot and maven logo" className="ui rounded image"/></div>
+                    </div>
+
+                    <div className="stretched three column row">
+                        <div className="column"><img src="postman.png" alt="postman logo" className="ui rounded small image"/></div>
+                        <div className="column">
+                            <div className="ui relaxed list">
+                                <div role="listitem" className="item">
+                                    <div className="content">
+                                        <div className="header">MySQL</div>
+                                        <div className="description">creation of relational database schema</div>
+                                    </div>
+                                </div>
+                                <div role="listitem" className="item">
+                                    <div className="content">
+                                        <div className="header">Postman</div>
+                                        <div className="description">manual testing of API endpoints</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="column"><img src="mysql.png" alt="mysql logo" className="ui rounded small image"/></div>
                     </div>
 
                     <div className="stretched three column row">
@@ -119,7 +120,7 @@ const Home = (props) => {
                                 <div role="listitem" className="item">
                                     <div className="content">
                                         <div className="header">Axios</div>
-                                        <div className="description">requests to backend api</div>
+                                        <div className="description">send requests to backend API</div>
                                     </div>  
                                 </div>
                                 <div role="listitem" className="item">
@@ -132,6 +133,34 @@ const Home = (props) => {
                         </div>
                         <div className="column"><img src="semanticui.png" alt="semantic-ui logo" className="ui rounded small image"/></div>
                     </div>
+
+                    <div className="stretched three column row">
+                        <div className="column"><img src="vultr.webp" alt="vultr logo" className="ui rounded small image"/></div>
+                        <div className="column">
+                            <div className="ui relaxed list">
+                                <div role="listitem" className="item">
+                                    <div className="content">
+                                        <div className="header">Vultr</div>
+                                        <div className="description">host database and API on an Ubuntu virtual machine</div>
+                                    </div>
+                                </div>
+                                <div role="listitem" className="item">
+                                    <div className="content">
+                                        <div className="header">Nginx</div>
+                                        <div className="description">serve API service to client</div>
+                                    </div>  
+                                </div>
+                                <div role="listitem" className="item">
+                                    <div className="content">
+                                        <div className="header">Vercel</div>
+                                        <div className="description">host frontend application</div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                        <div className="column"><img src="nginx.png" alt="nginx logo" className="ui rounded small image"/></div>
+                    </div>
+
                 </div>
                 <hr style={{marginTop: '1.5em'}}/>
             </div>
