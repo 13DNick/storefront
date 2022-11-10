@@ -164,7 +164,7 @@ class CartView extends React.Component {
         const response = await backendAPI.post(`/checkout/purchase`, jsonPurchase, {
             headers: {
                 'Content-Type': 'application/json'
-            }
+            }  
         });
         this.setState({orderTrackingNumber: response.data.orderTrackingNumber});
     }
@@ -182,89 +182,112 @@ class CartView extends React.Component {
     }
 
     beforeCheckoutView = () => {
-        return(
-            <div className="ui centered vertically divided grid">
-                <div className="two column row">
-                    <div className="twelve wide column">
-                        <div className="ui centered vertically divided grid">
-                            {
-                                this.state.orderItems.map(item => {
-                                    return(
-                                        <div className="three column row" key={item.name}>
-                                            <div className="four wide column"><img src={item.imageURL} className="ui rounded tiny image" alt=""/></div>
-                                            <div className="eight wide column">
-                                                <div className="ui header">{item.name}</div>
-                                            </div>
-                                            <div className="four wide column">
-                                                <div>Unit price: ${item.unitPrice.toFixed(2)}</div>
-                                                <div>Quantity: {item.quantity}</div>
-                                                <div>Total: ${(item.price).toFixed(2)}</div>
-                                            </div>
-                                        </div>
-                                    );
-                                })
-                            }
+        if(this.state.orderItems.length === 0){
+            return(
+                    <div className="ui center aligned container text">
+                    <i aria-hidden="true" className="add to cart massive icon" style={{color: 'red'}}></i>
+                    <div className="ui center aligned header">
+                        <div className="content">
+                        Oops, Your cart is empty!
                         </div>
                     </div>
-                    <div className="four wide column">
-                        <div className="ui container text">
-                            <form onSubmit={this.onFormSubmit} className="ui form">
-                                <div className="ui card">
-                                    <div className="content">
-                                        <div className="header">Enter Personal Information</div>
-                                    </div>
-                                    <div className="content">
-                                        <Form.Input label="First Name" 
-                                            onChange={(e) => {this.setState({firstName: e.target.value, firstNameChanged: true}, 
-                                                        this.validateName("first"))}
-                                            } 
-                                            value={this.state.firstName}
-                                            error={this.handleFirstNameError()}
-                                        /> 
+                    <div className="ui blue animated button">
+                        <Link href="/categories">
+                            <div className="visible content" style={{color: '#FFF'}}>
+                                Go Back
+                            </div>
+                            <div className="hidden content" style={{color: '#FFF'}}>
+                                <i aria-hidden="true" className="long arrow alternate left large icon"></i>
+                            </div>
+                        </Link>
+                    </div>
+                </div>  
+            );
+        } else {
+            return(
+                <div className="ui centered vertically divided grid">
+                    <div className="two column row">
+                        <div className="twelve wide column">
+                            <div className="ui centered vertically divided grid">
+                                {
+                                    this.state.orderItems.map(item => {
+                                        return(
+                                            <div className="three column row" key={item.name}>
+                                                <div className="four wide column"><img src={item.imageURL} className="ui rounded tiny image" alt=""/></div>
+                                                <div className="eight wide column">
+                                                    <div className="ui header">{item.name}</div>
+                                                </div>
+                                                <div className="four wide column">
+                                                    <div>Unit price: ${item.unitPrice.toFixed(2)}</div>
+                                                    <div>Quantity: {item.quantity}</div>
+                                                    <div>Total: ${(item.price).toFixed(2)}</div>
+                                                </div>
+                                            </div>
+                                        );
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="four wide column">
+                            <div className="ui container text">
+                                <form onSubmit={this.onFormSubmit} className="ui form">
+                                    <div className="ui card">
+                                        <div className="content">
+                                            <div className="header">Enter Personal Information</div>
+                                        </div>
+                                        <div className="content">
+                                            <Form.Input label="First Name" 
+                                                onChange={(e) => {this.setState({firstName: e.target.value, firstNameChanged: true}, 
+                                                            this.validateName("first"))}
+                                                } 
+                                                value={this.state.firstName}
+                                                error={this.handleFirstNameError()}
+                                            /> 
+                                            
+                                            <Form.Input label="Last Name" 
+                                                onChange={(e) => {this.setState({lastName: e.target.value, lastNameChanged: true}, 
+                                                            this.validateName("last"))}
+                                                } 
+                                                value={this.state.lastName}
+                                                error={this.handleLastNameError()}
+                                            /> 
+                                            
+                                        </div>
                                         
-                                        <Form.Input label="Last Name" 
-                                            onChange={(e) => {this.setState({lastName: e.target.value, lastNameChanged: true}, 
-                                                        this.validateName("last"))}
+                                        <div className="content">
+                                        <Form.Input label="Email Address" 
+                                            onChange={(e) => {this.setState({email: e.target.value, emailChanged: true}, 
+                                                        this.validateEmail())}
                                             } 
-                                            value={this.state.lastName}
-                                            error={this.handleLastNameError()}
+                                            value={this.state.email}
+                                            error={this.handleEmailError()}
                                         /> 
-                                        
+                                        </div>
                                     </div>
                                     
-                                    <div className="content">
-                                    <Form.Input label="Email Address" 
-                                        onChange={(e) => {this.setState({email: e.target.value, emailChanged: true}, 
-                                                    this.validateEmail())}
-                                        } 
-                                        value={this.state.email}
-                                        error={this.handleEmailError()}
-                                    /> 
+                                    
+                                    <div className="ui card">
+                                        <div className="content">
+                                            <div className="header">Place Order</div>
+                                        </div>
+                                        <div className="content">
+                                            <p>Quantity: {this.state.order.totalQuantity}</p>
+                                            <p>Total price: ${this.state.order.totalPrice}</p>
+                                        </div>
+                                        <div className="content">
+                                            <button className="ui green fluid button" style={{fontSize:'1em'}}>
+                                                Place Order
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                
-                                <div className="ui card">
-                                    <div className="content">
-                                        <div className="header">Place Order</div>
-                                    </div>
-                                    <div className="content">
-                                        <p>Quantity: {this.state.order.totalQuantity}</p>
-                                        <p>Total price: ${this.state.order.totalPrice}</p>
-                                    </div>
-                                    <div className="content">
-                                        <button className="ui green fluid button" style={{fontSize:'1em'}}>
-                                            Place Order
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                            
                 </div>
-                        
-            </div>
-        );
+            );
+        }
     }
 
     afterCheckoutView = () => {
