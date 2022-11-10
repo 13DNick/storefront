@@ -6,16 +6,36 @@ const Home = (props) => {
         <div>
             
             <div className="ui center aligned container text">
-                <button className="ui green animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
-                    <Link href="/categories">
-                        <div className="visible content" style={{color: '#FFF'}}>
-                            Enter Ecommerce Store
+                <div className="ui center aligned container text">
+                    <div className="ui centered vertically divided grid">
+                        <div className="two column row">
+                            <div className="column">
+                                <button className="ui green animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
+                                    <Link href="/categories">
+                                        <div className="visible content" style={{color: '#FFF'}}>
+                                            Enter Ecommerce Store
+                                        </div>
+                                        <div className="hidden content" style={{color: '#FFF'}}>
+                                            <i aria-hidden="true" className="unlock alternate icon"></i>
+                                        </div>
+                                    </Link>
+                                </button>
+                            </div>
+                            <div className="column">
+                                <button className="ui red animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
+                                    <a href="https://ecommerceapi.xyz/swagger-ui.html" target="_blank" rel="noreferrer">
+                                        <div className="visible content" style={{color: '#FFF'}}>
+                                            View API Documentation
+                                        </div>
+                                        <div className="hidden content" style={{color: '#FFF'}}>
+                                            <i aria-hidden="true" className="archive icon"></i>
+                                        </div>
+                                    </a>
+                                </button>
+                            </div>
                         </div>
-                        <div className="hidden content" style={{color: '#FFF'}}>
-                            <i aria-hidden="true" className="unlock alternate icon"></i>
-                        </div>
-                    </Link>
-                </button>
+                    </div>
+                </div>
 
                 <h1 style={{marginTop: '0.3em', marginBottom: '0.4em', fontSize: '4em', fontWeight:'normal'}}>Application Overview</h1>
                     
