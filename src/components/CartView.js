@@ -205,15 +205,15 @@ class CartView extends React.Component {
             );
         } else {
             return(
-                <div className="ui centered vertically divided grid">
+                <div className="ui centered vertically divided grid stackable">
                     <div className="two column row">
                         <div className="twelve wide column">
-                            <div className="ui centered vertically divided grid">
+                            <div className="ui centered vertically divided grid stackable">
                                 {
                                     this.state.orderItems.map(item => {
                                         return(
                                             <div className="three column row" key={item.name}>
-                                                <div className="four wide column"><img src={item.imageURL} className="ui rounded tiny image" alt=""/></div>
+                                                <div className="four wide column"><img src={item.imageURL} className="ui rounded small image" alt=""/></div>
                                                 <div className="eight wide column">
                                                     <div className="ui header">{item.name}</div>
                                                 </div>
