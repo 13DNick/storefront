@@ -10,7 +10,7 @@ const ProductsInCategory = (props) => {
     });
     
     return(
-        <div className="ui centered cards two">
+        <div className="ui centered cards two stackable">
             {renderedProducts}
         </div>
     );

@@ -213,14 +213,16 @@ class CartView extends React.Component {
                                     this.state.orderItems.map(item => {
                                         return(
                                             <div className="three column row" key={item.name}>
-                                                <div className="four wide column"><img src={item.imageURL} className="ui rounded small image" alt=""/></div>
+                                                <div className="four wide column"><img src={item.imageURL} className="ui rounded small image centered" alt=""/></div>
                                                 <div className="eight wide column">
-                                                    <div className="ui header">{item.name}</div>
+                                                    <div className="ui header centered">{item.name}</div>
                                                 </div>
                                                 <div className="four wide column">
-                                                    <div>Unit price: ${item.unitPrice.toFixed(2)}</div>
-                                                    <div>Quantity: {item.quantity}</div>
-                                                    <div>Total: ${(item.price).toFixed(2)}</div>
+                                                    <div className="ui center aligned container" style={{fontWeight: "normal", fontSize: "1.2em"}}>
+                                                        <div style={{marginBottom: '0.1em'}}>Unit price: ${item.unitPrice.toFixed(2)}</div>
+                                                        <div style={{marginBottom: '0.1em'}}>Quantity: {item.quantity}</div>
+                                                        <div style={{marginBottom: '0.1em'}}>Total: ${(item.price).toFixed(2)}</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         );
@@ -229,9 +231,9 @@ class CartView extends React.Component {
                             </div>
                         </div>
                         <div className="four wide column">
-                            <div className="ui container text">
+                            <div className="ui container">
                                 <form onSubmit={this.onFormSubmit} className="ui form">
-                                    <div className="ui card">
+                                    <div className="ui card centered">
                                         <div className="content">
                                             <div className="header">Enter Personal Information</div>
                                         </div>
@@ -266,7 +268,7 @@ class CartView extends React.Component {
                                     </div>
                                     
                                     
-                                    <div className="ui card">
+                                    <div className="ui card centered">
                                         <div className="content">
                                             <div className="header">Place Order</div>
                                         </div>

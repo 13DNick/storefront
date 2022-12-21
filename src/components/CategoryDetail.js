@@ -12,7 +12,7 @@ const CategoryDetail = (props) => {
     
     return(
         <div className="">
-            <div className="ui header" style={{fontWeight: "normal", fontSize: "3em"}}>{processName(props.category.name)}</div>
+            <div className="ui header" style={{fontWeight: "normal", fontSize: "3em", marginBottom: "0.5em"}}>{processName(props.category.name)}</div>
             <ProductsInCategory products={props.category.products} onProductSelect={(props.onProductSelect)}/>
         </div>
     );

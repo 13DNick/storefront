@@ -20,7 +20,10 @@ const Product = (props) => {
    
     return(
         <a className="ui card" href="/product" onClick={(e) => handleClick(e, props.product)}>
-            <img className="ui image small floated centered" src={props.product.imageURL} alt="" style={{marginTop: '1em'}}/>
+            <div className='content center aligned'>
+                <img className="ui image small" src={props.product.imageURL} alt="" style={{marginTop: '1em'}}/>
+            </div>
+                
             <div className="content">
                 <div className="header">{props.product.name}</div>
                 <div className="description">
@@ -28,9 +31,9 @@ const Product = (props) => {
                 </div>
             </div>
             <div className="extra content">
-            <Rating icon="star" 
-                defaultRating={Math.round(props.product.rating)} 
-                maxRating={5} size="large" disabled/>
+                <Rating icon="star" 
+                    defaultRating={Math.round(props.product.rating)} 
+                    maxRating={5} size="large" disabled/>
                 &nbsp;&nbsp;&nbsp;{props.product.ratingCount} Ratings
             </div>
         </a>

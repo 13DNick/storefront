@@ -5,7 +5,7 @@ const ProductDetail = (props) => {
     
     return(
         <div>
-            <div className="ui centered center aligned vertically divided relaxed grid">
+            <div className="ui centered center aligned vertically divided relaxed grid stackable">
                 <div className="two column row">
                     <div className="six wide column">
                         <img src={props.product.imageURL} alt={props.product.name} className="ui rounded large image"/>

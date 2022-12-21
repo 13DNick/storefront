@@ -24,7 +24,7 @@ const Products = (props) => {
     });
 
     return(
-        <div className="ui centered cards three">
+        <div className="ui centered cards three stackable">
             {renderedProducts}
         </div>
     );

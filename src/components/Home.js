@@ -85,100 +85,109 @@ const Home = (props) => {
                 <div className="ui centered vertically divided grid stackable">
                     
                     <div className="stretched three column row">
-                        <div className="column"><img src="java.png" alt="java logo" className="ui rounded small image"/></div>
+                        <div className="column"><img src="java.png" alt="java logo" className="ui rounded small image centered"/></div>
                         <div className="column">
-                            <div className="ui relaxed list">
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">Java + Spring Boot + Maven</div>
-                                        <div className="description">development of the Restful API server</div>
-                                    </div> 
-                                </div>
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">Hibernate + Jackson</div>
-                                        <div className="description">map object-oriented domain model to relational database
-                                        and convert between JSON and Java POJO's</div>
-                                    </div> 
+                            <div className="ui container center aligned">
+                                <div className="ui relaxed list">
+                                    <div role="listitem" className="item">
+                                        <div className="content">
+                                            <div className="header">Java + Spring Boot + Maven</div>
+                                            <div className="description">development of the Restful API server</div>
+                                        </div> 
+                                    </div>
+                                    <div role="listitem" className="item">
+                                        <div className="content">
+                                            <div className="header">Hibernate + Jackson</div>
+                                            <div className="description">map object-oriented domain model to relational database
+                                            and convert between JSON and Java POJO's</div>
+                                        </div> 
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
-                        <div className="column"><img src="springboot.png" alt="spring boot and maven logo" className="ui rounded small image"/></div>
+                        <div className="column"><img src="springboot.png" alt="spring boot and maven logo" className="ui rounded small image centered"/></div>
                     </div>
 
                     <div className="stretched three column row">
-                        <div className="column"><img src="postman.png" alt="postman logo" className="ui rounded small image"/></div>
+                        <div className="column"><img src="postman.png" alt="postman logo" className="ui rounded small image centered"/></div>
                         <div className="column">
-                            <div className="ui relaxed list">
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">MySQL</div>
-                                        <div className="description">creation of relational database schema</div>
+                            <div className="ui container center aligned">
+                                <div className="ui relaxed list">
+                                    <div role="listitem" className="item">
+                                        <div className="content">
+                                            <div className="header">MySQL</div>
+                                            <div className="description">creation of relational database schema</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">Postman</div>
-                                        <div className="description">manual testing of API endpoints</div>
+                                    <div role="listitem" className="item">
+                                        <div className="content">
+                                            <div className="header">Postman</div>
+                                            <div className="description">manual testing of API endpoints</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="column"><img src="mysql.png" alt="mysql logo" className="ui rounded small image"/></div>
+                        <div className="column"><img src="mysql.png" alt="mysql logo" className="ui rounded small image centered"/></div>
                     </div>
 
                     <div className="stretched three column row">
-                        <div className="column"><img src="react.png" alt="react logo" className="ui rounded small image"/></div>
+                        <div className="column"><img src="react.png" alt="react logo" className="ui rounded small image centered"/></div>
                         <div className="column">
-                            <div className="ui relaxed list">
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">React.js</div>
-                                        <div className="description">development of the frontend client application</div>
+                            <div className="ui container center aligned">
+                                <div className="ui relaxed list">
+                                    <div role="listitem" className="item">
+                                        <div className="content">
+                                            <div className="header">React.js</div>
+                                            <div className="description">development of the frontend client application</div>
+                                        </div>
+                                    </div>
+                                    <div role="listitem" className="item">
+                                        <div className="content">
+                                            <div className="header">Axios</div>
+                                            <div className="description">send requests to backend API</div>
+                                        </div>  
+                                    </div>
+                                    <div role="listitem" className="item">
+                                        <div className="content">
+                                            <div className="header">Semantic UI</div>
+                                            <div className="description">styling of the user interface</div>
+                                        </div>  
                                     </div>
                                 </div>
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">Axios</div>
-                                        <div className="description">send requests to backend API</div>
-                                    </div>  
-                                </div>
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">Semantic UI</div>
-                                        <div className="description">styling of the user interface</div>
-                                    </div>  
-                                </div>
-                            </div>
+                            </div>    
                         </div>
-                        <div className="column"><img src="semanticui.png" alt="semantic-ui logo" className="ui rounded small image"/></div>
+                        <div className="column"><img src="semanticui.png" alt="semantic-ui logo" className="ui rounded small image centered"/></div>
                     </div>
 
                     <div className="stretched three column row">
-                        <div className="column"><img src="vultr.webp" alt="vultr logo" className="ui rounded small image"/></div>
+                        <div className="column"><img src="vultr.webp" alt="vultr logo" className="ui rounded small image centered"/></div>
                         <div className="column">
-                            <div className="ui relaxed list">
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">Vultr</div>
-                                        <div className="description">host database and API on an Ubuntu virtual machine</div>
+                            <div className="ui container center aligned">
+                                <div className="ui relaxed list">
+                                    <div role="listitem" className="item">
+                                        <div className="content">
+                                            <div className="header">Vultr</div>
+                                            <div className="description">host database and API on an Ubuntu virtual machine</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">Nginx</div>
-                                        <div className="description">serve API service to client</div>
-                                    </div>  
-                                </div>
-                                <div role="listitem" className="item">
-                                    <div className="content">
-                                        <div className="header">Vercel</div>
-                                        <div className="description">host frontend application</div>
-                                    </div>  
+                                    <div role="listitem" className="item">
+                                        <div className="content">
+                                            <div className="header">Nginx</div>
+                                            <div className="description">serve API service to client</div>
+                                        </div>  
+                                    </div>
+                                    <div role="listitem" className="item">
+                                        <div className="content">
+                                            <div className="header">Vercel</div>
+                                            <div className="description">host frontend application</div>
+                                        </div>  
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="column"><img src="nginx.png" alt="nginx logo" className="ui rounded small image"/></div>
+                        <div className="column"><img src="nginx.png" alt="nginx logo" className="ui rounded small image centered"/></div>
                     </div>
 
                 </div>
