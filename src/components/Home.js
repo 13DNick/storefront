@@ -7,7 +7,7 @@ const Home = (props) => {
             
             <div className="ui center aligned container text">
                 <div className="ui center aligned container text">
-                    <div className="ui centered vertically divided grid">
+                    <div className="ui centered vertically divided grid stackable">
                         <div className="two column row">
                             <div className="column">
                                 <button className="ui green animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
@@ -82,10 +82,10 @@ const Home = (props) => {
             <div className="ui center aligned container text">
                 <h1 style={{marginTop: '0.4em', marginBottom: '0.4em', fontSize: '4em', fontWeight:'normal'}}>Technologies Utilized</h1>
                 
-                <div className="ui centered vertically divided grid">
+                <div className="ui centered vertically divided grid stackable">
                     
                     <div className="stretched three column row">
-                        <div className="column"><img src="java.png" alt="java logo" className="ui rounded image"/></div>
+                        <div className="column"><img src="java.png" alt="java logo" className="ui rounded small image"/></div>
                         <div className="column">
                             <div className="ui relaxed list">
                                 <div role="listitem" className="item">
@@ -103,7 +103,7 @@ const Home = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="column"><img src="springboot.png" alt="spring boot and maven logo" className="ui rounded image"/></div>
+                        <div className="column"><img src="springboot.png" alt="spring boot and maven logo" className="ui rounded small image"/></div>
                     </div>
 
                     <div className="stretched three column row">
@@ -186,7 +186,7 @@ const Home = (props) => {
             </div>
 
             <div className="ui center aligned container text">
-                <div className="ui centered vertically divided grid">
+                <div className="ui centered vertically divided grid stackable">
                     <div className="two column row">
                         <div className="column">
                             <button className="ui green animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
