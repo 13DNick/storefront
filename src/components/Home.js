@@ -1,16 +1,18 @@
 import React from "react";
 import Link from "./Link";
+import {Button, Icon} from 'semantic-ui-react';
 
 const Home = (props) => {
     return(
         <div>
             
             <div className="ui center aligned container text">
-                <div className="ui center aligned container text">
+                <div className="ui center aligned container text" style={{marginTop: '0.5em'}}>
                     <div className="ui centered vertically divided grid stackable">
+                        
                         <div className="two column row">
-                            <div className="column">
-                                <button className="ui green animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
+                            <div className="eight wide column">
+                                <button className="ui green animated fluid medium button" style={{fontSize: '1em'}}>
                                     <Link href="/categories">
                                         <div className="visible content" style={{color: '#FFF'}}>
                                             Enter Ecommerce Store
@@ -21,18 +23,30 @@ const Home = (props) => {
                                     </Link>
                                 </button>
                             </div>
-                            <div className="column">
-                                <button className="ui red animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
-                                    <a href="https://ecommerceapi.xyz/swagger-ui.html" target="_blank" rel="noreferrer">
-                                        <div className="visible content" style={{color: '#FFF'}}>
-                                            View API Documentation
-                                        </div>
-                                        <div className="hidden content" style={{color: '#FFF'}}>
-                                            <i aria-hidden="true" className="archive icon"></i>
-                                        </div>
-                                    </a>
-                                </button>
-                            </div>
+                            <div className="eight wide column">
+                                <Button.Group style={{fontSize:'1.2em'}}>
+                                    <Button icon labelPosition="left" color="red">
+                                        <Icon name="archive"/>
+                                        <a href="https://ecommerceapi.xyz/swagger-ui.html" target="_blank" rel="noreferrer" style={{color: '#FFF'}}>
+                                            Swagger
+                                        </a>
+                                    </Button>
+                                    
+                                    <Button icon labelPosition="left" color="orange">
+                                        <Icon name="github"/>
+                                        <a href="https://github.com/13DNick/ecommerce-api" target="_blank" rel="noreferrer" style={{color: '#FFF'}}>
+                                            API
+                                        </a>
+                                    </Button>
+    
+                                    <Button icon labelPosition="left" color="yellow">
+                                        <Icon name="github"/>
+                                        <a href="https://github.com/13DNick/storefront" target="_blank" rel="noreferrer" style={{color: '#FFF'}}>
+                                            Client
+                                        </a>
+                                    </Button>
+                                </Button.Group>
+                            </div>   
                         </div>
                     </div>
                 </div>
