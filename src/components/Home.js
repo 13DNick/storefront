@@ -51,7 +51,7 @@ const Home = (props) => {
                     </div>
                 </div>
 
-                <h1 style={{marginTop: '0.3em', marginBottom: '0.4em', fontSize: '4em', fontWeight:'normal'}}>Application Overview</h1>
+                <h1 style={{marginTop: '0em', marginBottom: '0.4em', fontSize: '4em', fontWeight:'normal'}}>Application Overview</h1>
                     
                 <div role="list" className="ui horizontal list relaxed">
                     <div role="listitem" className="item">
@@ -208,11 +208,11 @@ const Home = (props) => {
                 <hr style={{marginTop: '1.5em'}}/>
             </div>
 
-            <div className="ui center aligned container text">
+            <div className="ui center aligned container text" style={{marginTop: '0.7em'}}>
                 <div className="ui centered vertically divided grid stackable">
                     <div className="two column row">
                         <div className="column">
-                            <button className="ui green animated fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
+                            <button className="ui green animated fluid button" style={{fontSize:'1em'}}>
                                 <Link href="/categories">
                                     <div className="visible content" style={{color: '#FFF'}}>
                                         Enter Ecommerce Store
@@ -224,7 +224,7 @@ const Home = (props) => {
                             </button>
                         </div>
                         <div className="column">
-                            <button className="ui linkedin fluid button" style={{marginTop: '0.5em', fontSize:'1.2em'}}>
+                            <button className="ui linkedin fluid button" style={{fontSize:'1em'}}>
                                 <a href="https://www.linkedin.com/in/nikitakoulaga" target="_blank" rel="noreferrer">
                                     <div className="visible content" style={{color: '#FFF'}}>
                                         <i aria-hidden className="linkedin icon"/>
